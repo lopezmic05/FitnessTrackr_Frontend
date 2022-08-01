@@ -6,11 +6,16 @@ import {
     Route,
   } from "react-router-dom";
 
-import {App} from "./components";
+import {Activities, App, MyRoutines, NavBar, Routines} from "./components";
 
 
 const root = ReactDOM.createRoot(document.getElementById('app'))
 root.render(
 <BrowserRouter>
-    <App />
+<Routes>
+<Route path="/" element={<App />} />
+<Route path="activities" element={<Activities />} />
+<Route path="my-routines" element={<MyRoutines />} />
+<Route path="routines" element={<Routines />} />
+</Routes>
 </BrowserRouter>)
