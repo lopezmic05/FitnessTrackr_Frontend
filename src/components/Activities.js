@@ -1,5 +1,4 @@
 
-
 const Activities = () => {
   return (
     <div>
