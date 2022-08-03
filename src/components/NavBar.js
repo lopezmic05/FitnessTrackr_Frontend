@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
+import "./navbar.css"
+
 const NavBar = () => {
     return ( 
-    <div>
-    <h1>Welcome To FitnessTrackr!!</h1>
-    <nav>
-    <Link to="/">Home</Link> |{""}
-        <Link to="routines">Routines</Link> | {""}
-        <Link to="my-routines">My Routines</Link> | {""}
-        <Link to="activities">Activities</Link> | {""}
+    <div id="header">
+    <h1>FitnessTrackr</h1>
+    <nav id="links">
+    <Link to="/">Home</Link> | {""}
         <Link to="Login">Login</Link> | {""}
+        <Link to="profile">Profile</Link> | {""}
         <Link to="register">Register</Link>
       </nav>
     

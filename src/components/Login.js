@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { loginUser } from '../api'
 
+import "./login.css"
+
 
 
 const Login = (props) => {
@@ -24,17 +26,20 @@ const Login = (props) => {
     }
 
   return (
-    <div>
-      <h1>Please Login!</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
+    <div id="login">
+      <h1 id="login-header">Please Login!</h1>
+      <form onSubmit={handleSubmit} id="login-form">
+        <label id="user">Username</label>
         <input 
+        type='text'
         id='username'
         onChange={handleOnChange}
          placeholder='create username...'
          value={username}></input>
-        <label>Password</label>
-        <input id='password'
+        <label id="password">Password</label>
+        <input 
+        type='password'
+        id='password'
         onChange={handleOnChange}
          placeholder='create password...'
          value={password}></input>
