@@ -1,5 +1,5 @@
 import { Route, Routes} from "react-router-dom";
-import{NavBar, Register, Login }  from "./"
+import{NavBar, Profile, Register, Login }  from "./"
 
 const App = () => {
   return (
@@ -7,9 +7,10 @@ const App = () => {
       <NavBar />
       <Routes>
             <Route path="/" 
-            element={<h1>This Is FitnessTrackr!</h1>}>
+            element={<h1>Welcome To FitnessTrackr!</h1>}>
             </Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
             <Route path="/register" element={<Register />}></Route>
       </Routes>
     </div>

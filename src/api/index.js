@@ -41,4 +41,28 @@ const loginUser = async (username, password) => {
 
 }
 
-module.exports = { registerUser, loginUser };
+
+const getUser = async () => {
+  const token = localStorage.getItem("token")
+  const response = await fetch(`${BASE_URL}users/me`,{
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  const result = await response.json()
+
+  return result
+}
+
+
+
+const getRoutines = async () => {
+  const response = await fetch( `${BASE_URL}routines`, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+}
+
+module.exports = { registerUser, loginUser, getUser };
