@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from '../api'
-
 import "./login.css"
 
 
@@ -8,6 +8,7 @@ import "./login.css"
 const Login = (props) => {
     const [ username, setUsername ] = useState( '' )
     const [ password, setPassword ] = useState( '' )
+    let navigate = useNavigate();
 
     const handleOnChange = (event) =>{
         const changed = event.target.id
@@ -20,9 +21,11 @@ const Login = (props) => {
     }
 
     const handleSubmit = async(event) => {
+
         event.preventDefault()
         const result = await loginUser(username, password)
         localStorage.setItem("token",result.token)
+        navigate("/profile")
     }
 
   return (
@@ -34,14 +37,14 @@ const Login = (props) => {
         type='text'
         id='username'
         onChange={handleOnChange}
-         placeholder='create username...'
+         placeholder='enter username...'
          value={username}></input>
         <label id="password">Password</label>
         <input 
         type='password'
         id='password'
         onChange={handleOnChange}
-         placeholder='create password...'
+         placeholder='enter password...'
          value={password}></input>
         <button type='submit'>Submit</button>
       </form>

@@ -65,4 +65,16 @@ const getRoutines = async () => {
   })
 }
 
-module.exports = { registerUser, loginUser, getUser };
+const getActivities = async () => {
+  const response = await fetch(`${BASE_URL}activities`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(response => response.json())
+  .then(result => {
+    console.log(result);
+  })
+  .catch(console.error);
+}
+
+module.exports = { registerUser, loginUser, getUser, getActivities };

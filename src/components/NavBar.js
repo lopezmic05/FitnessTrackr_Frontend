@@ -1,20 +1,39 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css"
 
-const NavBar = () => {
-    return ( 
+const NavBar = ({ isLoggedIn, setIsLoggedIn, setUsername, setPassword }) => {
+  let navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    setIsLoggedIn(false);
+    navigate('/');
+    setUsername("");
+    setPassword("");
+  }
+
+  return (
     <div id="header">
-    <h1>FitnessTrackr</h1>
-    <nav id="links">
-    <Link to="/">Home</Link> | {""}
-        <Link to="Login">Login</Link> | {""}
-        <Link to="profile">Profile</Link> | {""}
-        <Link to="register">Register</Link>
-      </nav>
-    
+      <h1><Link id="links" to="/">FitnessTrackr</Link></h1>
+      {isLoggedIn ? (
+        <>
+          <nav id="links">
+            <Link to="/">Home</Link> | {""}
+            <Link to="/Login" onClick={logout}>Logout</Link> | {""}
+            <Link to="profile">Profile</Link> | {""}
+            <Link to="activities">Activities</Link> | {""}
+          </nav>
+        </>
+      ) : (
+        <>
+        <nav id="links">
+          <Link to="Login">Login</Link> | {""}
+          <Link to="register">Register</Link>
+        </nav>
+        </>
+      )}
     </div>
-     );
+  );
 }
- 
+
 export default NavBar;
