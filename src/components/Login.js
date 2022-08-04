@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from '../api'
 import "./login.css"
 
-
-
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     const [ username, setUsername ] = useState( '' )
     const [ password, setPassword ] = useState( '' )

@@ -11,12 +11,12 @@ const Register = () => {
   }
   return (
     <div id="register">
-      <form onSubmit={handleSubmit} >
-        <h1 id="register-header"> Sign up for an account</h1>
+      <form onSubmit={handleSubmit} id= 'register-form'>
+        <h1 id="register-header"> Sign up for an account.</h1>
         <label>Username</label>
-        <input type='text' id='register-input' placeholder='create username...'></input>
+        <input type='text' id='username' placeholder='create username...'></input>
         <label>Password</label>
-        <input type='password' id='register-input' placeholder='create password...'></input>
+        <input type='password' id='password' placeholder='create password...'></input>
         <button type='submit'>Submit</button>
       </form>
     </div>
