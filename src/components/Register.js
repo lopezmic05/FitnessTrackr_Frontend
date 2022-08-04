@@ -1,6 +1,5 @@
 import React from "react";
 import { registerUser } from "../api";
-
 import './register.css'
 
 const Register = () => {
@@ -13,7 +12,7 @@ const Register = () => {
   return (
     <div id="register">
       <form onSubmit={handleSubmit} >
-        <h1 id="register-header"> Sign up for an account.</h1>
+        <h1 id="register-header"> Sign up for an account</h1>
         <label>Username</label>
         <input type='text' id='register-input' placeholder='create username...'></input>
         <label>Password</label>
