@@ -3,12 +3,11 @@ import { getUser } from "../api";
 
 const Profile = () => {
     const [info, setInfo] = useState ({})
-
     const getUserInfo = async () =>{
         try {
             const result = await getUser()
             if(result){
-                console.log(result, "i am result")
+                console.log(result, "I am Profile Result")
                 setInfo(result)
             }
         } catch (error) {
