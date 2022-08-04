@@ -19,7 +19,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn, setUsername, setPassword }) => {
         <>
           <nav id="links">
             <Link to="/">Home</Link> | {""}
-            <Link to="/Login" onClick={logout}>Logout</Link> | {""}
+            <Link to="Login" onClick={logout}>Logout</Link> | {""}
             <Link to="profile">Profile</Link> | {""}
             <Link to="activities">Activities</Link> | {""}
           </nav>
@@ -32,6 +32,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn, setUsername, setPassword }) => {
         </nav>
         </>
       )}
+
     </div>
   );
 }

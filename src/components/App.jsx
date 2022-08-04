@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Route, Routes} from "react-router-dom";
-import{NavBar, Profile, Activities, Register, Login}  from "./"
+import{NavBar, Profile, Activities, Register, Routines, Login }  from "./"
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,6 +28,8 @@ const App = () => {
             <Route path="/" 
             element={<h1>Welcome To FitnessTrackr!</h1>}>
             </Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/routines" element={<Routines />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/activities" element={<Activities />}></Route>
             <Route path="/register" element={<Register />}></Route>

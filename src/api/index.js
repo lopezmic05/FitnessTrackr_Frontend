@@ -56,6 +56,17 @@ const getUser = async () => {
 }
 
 
+const getUserRoutine = async () => {
+  const response = await fetch(`${BASE_URL}users//routines`, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  const result = await response.json()
+  return result
+}
+
+
 
 const getRoutines = async () => {
   const response = await fetch( `${BASE_URL}routines`, {
@@ -64,6 +75,7 @@ const getRoutines = async () => {
     }
   })
 }
+
 
 const getActivities = async () => {
   const response = await fetch(`${BASE_URL}activities`, {
@@ -77,4 +89,6 @@ const getActivities = async () => {
   .catch(console.error);
 }
 
-module.exports = { registerUser, loginUser, getUser, getActivities };
+
+module.exports = { registerUser, loginUser, getUser, getRoutines, getActivities };
+
