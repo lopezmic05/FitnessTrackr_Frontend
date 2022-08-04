@@ -18,9 +18,11 @@
     font-size: 64px;
 }
 
-#register-input{
+#register-form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 10px;
+    padding: 10px;
 }

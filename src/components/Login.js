@@ -5,7 +5,7 @@ import "./login.css"
 
 
 
-const Login = (props) => {
+const Login = () => {
     const [ username, setUsername ] = useState( '' )
     const [ password, setPassword ] = useState( '' )
 
