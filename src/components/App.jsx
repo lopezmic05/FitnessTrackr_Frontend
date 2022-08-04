@@ -28,11 +28,10 @@ const App = () => {
             <Route path="/" 
             element={<h1>Welcome To FitnessTrackr!</h1>}>
             </Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
             <Route path="/routines" element={<Routines />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/activities" element={<Activities />}></Route>
-            <Route path="/register" element={<Register />}></Route>
       </Routes>
 
       ) : (
@@ -43,7 +42,8 @@ const App = () => {
             element={<h1>Welcome To FitnessTrackr! Please log in to begin.
             </h1>}>
             </Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
+            <Route path="/register" element={<Register />}></Route>
         </Routes>
         </div>
 

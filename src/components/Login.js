@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from '../api'
 import "./login.css"
 
-
-
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     const [ username, setUsername ] = useState( '' )
     const [ password, setPassword ] = useState( '' )
     let navigate = useNavigate();
@@ -20,12 +18,24 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = async(event) => {
-
-        event.preventDefault()
-        const result = await loginUser(username, password)
-        localStorage.setItem("token",result.token)
+    useEffect(() => {
+      if(isLoggedIn) {
         navigate("/profile")
+        console.log("I AM REDIRECTING YOU");
+      }
+    }, [isLoggedIn])
+
+    const handleSubmit = async(event) => {
+        event.preventDefault()        
+        try {
+          const result = await loginUser(username, password)
+          localStorage.setItem("token",result.token)
+          setIsLoggedIn(true)
+          
+        } catch (error) {
+          console.error(message)
+        }
+
     }
 
   return (

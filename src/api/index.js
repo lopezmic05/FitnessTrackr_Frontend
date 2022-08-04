@@ -24,20 +24,30 @@ const registerUser = async (username, password) => {
 
 
 const loginUser = async (username, password) => {
-  const response = await fetch(`${BASE_URL}users/login`,
-  {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        username:username,
-        password:password
+  try {
+    const response = await fetch(`${BASE_URL}users/login`,
+    {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          username:username,
+          password:password
+      })
     })
-  })
-  const result = await response.json();
-  console.log(result, "result")
-  return result
+    const result = await response.json();
+    console.log(result, "result")
+    if(result.error) {
+      throw result.error
+    }
+    return result
+    
+  } catch (error) {
+    console.log("I AM ERROR")
+    throw error
+
+  }
 
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { registerUser } from "../api";
-
 import './register.css'
 
 const Register = () => {

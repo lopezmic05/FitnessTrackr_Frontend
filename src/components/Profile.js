@@ -11,7 +11,6 @@ const Profile = () => {
                 console.log(result, "i am result")
                 setInfo(result)
             }
-            
         } catch (error) {
             console.error(error)
         }
@@ -21,7 +20,7 @@ const Profile = () => {
     },[])
     return ( 
         <div>
-            {info && info.username ?<h3>This is the profile of {info.username}</h3> : null}
+            {info && info.username ?<h3>Hello {info.username}!</h3> : null}
         </div>
      );
 }
