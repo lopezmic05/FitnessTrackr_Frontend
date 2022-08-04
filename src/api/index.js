@@ -56,6 +56,17 @@ const getUser = async () => {
 }
 
 
+const getUserRoutine = async () => {
+  const response = await fetch(`${BASE_URL}users//routines`, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  const result = await response.json()
+  return result
+}
+
+
 
 const getRoutines = async () => {
   const response = await fetch( `${BASE_URL}routines`, {
@@ -65,4 +76,4 @@ const getRoutines = async () => {
   })
 }
 
-module.exports = { registerUser, loginUser, getUser };
+module.exports = { registerUser, loginUser, getUser, getRoutines };
