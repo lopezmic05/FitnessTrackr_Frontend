@@ -1,36 +1,45 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import { getRoutines } from "../api";
 
+import './routine.css'
+
 const Routines = () => {
-  const [routines, setRoutines] = useState([])
-  
-  const getRoutinesInfo = async () =>{
+  const [routines, setRoutines] = useState([]);
+
+  const getRoutinesInfo = async () => {
     try {
-      const result = await getRoutines()
+      const result = await getRoutines();
 
-      if(result){
-        console.log(result, "i am routines result")
-        setRoutines(result)
+      if (result) {
+        console.log(result, "i am routines result");
+        setRoutines(result);
       }
-      
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
-  useEffect(() =>{
-    getRoutinesInfo()
-  }, [])
-
-console.log(routines, "THIS IS ROUTINES")
-  const routine = routines.map((routine) => {
-    return routine.creatorName
-  })
+  useEffect(() => {
+    getRoutinesInfo();
+  }, []);
+  console.log(routines, "THIS IS ROUTINES");
+  const mapRoutines = routines.map((routine) => {
+    return (
+      <div>
+        <h3 id="creator">{routine.creatorName}</h3>
+        <h3>{routine.name}</h3>
+        <h3>{routine.goal}</h3>
+        <br />
+      </div>
+    );
+  });
   return (
-    <div>
-      <h2>Welcome To Routines!!</h2>
-      {routines && routine ?<p> These are your routines! -//-//-//-//-//- {routine.join('  ')}</p> :null  }
+    <div id="routine-container">
+      <h2 id="routine-heading">Welcome To Routines!!</h2>
+      {routines && routines.length ? (
+        <p>{mapRoutines}</p>
+      ) : null}
     </div>
   );
 };

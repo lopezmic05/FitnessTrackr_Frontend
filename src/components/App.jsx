@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Route, Routes} from "react-router-dom";
 import{NavBar, Profile, Activities, Register, Routines, Login }  from "./"
 
+import './app.css'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
 
   useEffect(() => {
     if(localStorage.getItem("token")) {
@@ -39,7 +41,7 @@ const App = () => {
 
         <Routes>
             <Route path="/" 
-            element={<h1>Welcome To FitnessTrackr! Please log in to begin.
+            element={<h1 className="main-head">Welcome To FitnessTrackr! Please log in to begin.
             </h1>}>
             </Route>
             <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>

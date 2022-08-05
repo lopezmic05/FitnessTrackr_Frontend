@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,6 +7,18 @@
 }
 
 body{
+    font-family:quicksand;
+}
+
+
+#routine-heading{
     display: flex;
-    justify-content:center ;
+    justify-content: center;
+    align-items: center;
+}
+
+#routine-container{
+    background-color: slategrey;
+    margin: 20px;
+    padding: 30px;
 }
