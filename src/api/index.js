@@ -67,6 +67,7 @@ const getUser = async () => {
 
 
 const getUserRoutine = async (username) => {
+  
   const response = await fetch(`${BASE_URL}users/${username}/routines`, {
     headers: {
       'Content-Type': 'application/json',
