@@ -14,13 +14,15 @@ const registerUser = async (username, password) => {
       }),
     });
     const result = await response.json();
-    const token = result.data.token;
+    console.log(result)
+    const token = result.token;
     localStorage.setItem("token", token);
     return result;
   } catch (error) {
     throw error;
   }
 };
+
 
 
 const loginUser = async (username, password) => {
@@ -92,15 +94,13 @@ const getRoutines = async () => {
 
 
 const getActivities = async () => {
-  const response = await fetch(`${BASE_URL}activities`, {
+  const response = await fetch( `${BASE_URL}activities`, {
     headers: {
       'Content-Type': 'application/json',
-    },
-  }).then(response => response.json())
-  .then(result => {
-    console.log(result);
+    }
   })
-  .catch(console.error);
+  const result = await response.json()
+  return result
 }
 
 
