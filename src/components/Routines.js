@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { getRoutines } from "../api";
-
 import './routine.css'
 
 const Routines = () => {
@@ -12,7 +10,6 @@ const Routines = () => {
       const result = await getRoutines();
 
       if (result) {
-        console.log(result, "i am routines result");
         setRoutines(result);
       }
     } catch (error) {
@@ -23,7 +20,6 @@ const Routines = () => {
   useEffect(() => {
     getRoutinesInfo();
   }, []);
-  console.log(routines, "THIS IS ROUTINES");
   const mapRoutines = routines.map((routine) => {
     return (
       <div>

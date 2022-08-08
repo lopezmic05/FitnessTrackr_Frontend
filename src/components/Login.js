@@ -21,7 +21,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
     useEffect(() => {
       if(isLoggedIn) {
         navigate("/profile")
-        console.log("I AM REDIRECTING YOU");
       }
     }, [isLoggedIn])
 
@@ -35,7 +34,6 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         } catch (error) {
           console.error(message)
         }
-
     }
 
   return (

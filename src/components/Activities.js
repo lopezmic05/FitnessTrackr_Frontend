@@ -10,7 +10,6 @@ const Activities = () => {
       const result = await getActivities();
 
       if (result) {
-        console.log(result, "i am activities result");
         setActivities(result);
       }
     } catch (error) {
@@ -21,7 +20,6 @@ const Activities = () => {
   useEffect(() => {
     getActivityInfo();
   }, []);
-  console.log(activities, "THIS IS ACTIVITIES");
   const mapActivities = activities.map((activity) => {
     return (
       <div>

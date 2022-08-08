@@ -2,7 +2,6 @@ const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/api/";
 
 const registerUser = async (username, password) => {
   try {
-    console.log(`${BASE_URL}users/register`);
     const response = await fetch(`${BASE_URL}users/register`, {
       method: "POST",
       headers: {
@@ -14,7 +13,6 @@ const registerUser = async (username, password) => {
       }),
     });
     const result = await response.json();
-    console.log(result)
     const token = result.token;
     localStorage.setItem("token", token);
     return result;
@@ -22,8 +20,6 @@ const registerUser = async (username, password) => {
     throw error;
   }
 };
-
-
 
 const loginUser = async (username, password) => {
   try {
@@ -39,20 +35,16 @@ const loginUser = async (username, password) => {
       })
     })
     const result = await response.json();
-    console.log(result, "result")
     if(result.error) {
       throw result.error
     }
     return result
     
   } catch (error) {
-    console.log("I AM ERROR")
     throw error
-
   }
 
 }
-
 
 const getUser = async () => {
   const token = localStorage.getItem("token")
@@ -63,14 +55,11 @@ const getUser = async () => {
     }
   })
   const result = await response.json()
-
   return result
 }
 
-
 const getUserRoutine = async (username) => {
-  
-  const response = await fetch(`${BASE_URL}users/${username}/routines`, {
+  const response = await fetch(`${BASE_URL}users/${username}routines`, {
     headers: {
       'Content-Type': 'application/json',
       "Authorization": `Bearer ${token}`
@@ -79,8 +68,6 @@ const getUserRoutine = async (username) => {
   const result = await response.json()
   return result
 }
-
-
 
 const getRoutines = async () => {
   const response = await fetch( `${BASE_URL}routines`, {
@@ -91,7 +78,6 @@ const getRoutines = async () => {
   const result = await response.json()
   return result
 }
-
 
 const getActivities = async () => {
   const response = await fetch( `${BASE_URL}activities`, {
@@ -104,5 +90,5 @@ const getActivities = async () => {
 }
 
 
-module.exports = { registerUser, loginUser, getUser,getUserRoutine, getRoutines, getActivities };
+module.exports = { registerUser, loginUser, getUser, getUserRoutine, getRoutines, getActivities};
 

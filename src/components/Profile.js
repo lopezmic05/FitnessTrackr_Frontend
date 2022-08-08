@@ -8,7 +8,6 @@ const Profile = () => {
         try {
             const result = await getUser()
             if(result){
-                console.log(result, "I am Profile Result")
                 setInfo(result)
             }
         } catch (error) {
@@ -20,7 +19,6 @@ const Profile = () => {
         try {
             const RoutinesResult = await getUserRoutine()
             if(RoutinesResult){
-                console.log(RoutinesResult, "I am User Routine Result")
                 setUserRoutines(RoutinesResult)
             }
         } catch (error) {
@@ -31,7 +29,6 @@ const Profile = () => {
         getUserInfo()
         getRoutinesInfo()
     },[])
-    console.log(userRoutine, "THIS IS USER ROUTINE!!!!!!!!!!!!")
 
     return ( 
         <div>

@@ -27,7 +27,6 @@ const Register = () => {
       setError(true);
     } else {
       const success = await registerUser(username, password);
-      console.log(success.success)
       if (success.message == "you're signed up!") {
         setSubmitted(true);
         setError(false);
