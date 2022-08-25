@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getActivities } from "../api";
+import { Link } from "react-router-dom";
+
 
 
 const Activities = () => {
@@ -32,10 +34,12 @@ const Activities = () => {
   });
   return (
     <div id="routine-container">
+      <Link to="/CreateActivity"><button>Create a new activity</button></Link>
       <h2 id="routine-heading">Welcome To Activities!!</h2>
       {activities && activities.length ? (
-        <p>{mapActivities}</p>
+        <h3>{mapActivities}</h3>
       ) : null}
+
     </div>
   );
 };

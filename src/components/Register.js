@@ -7,6 +7,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   
   const handleUsername = (e) => {
@@ -23,14 +24,16 @@ const Register = () => {
     e.preventDefault();
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
-    if(username === '' || password === '') {
+    const result = await registerUser(username, password);
+    if(result.error) {
       setError(true);
+      setSubmitted(false);
+      setErrMessage(result.error);
     } else {
-      const success = await registerUser(username, password);
-      if (success.message == "you're signed up!") {
+      if (result.message == "you're signed up!") {
         setSubmitted(true);
         setError(false);
-      }
+      } 
     }
   };
 
@@ -52,7 +55,7 @@ const Register = () => {
       style={{
         display: error ? '' : 'none',
       }}>
-        <h1>Please enter all the fields</h1>
+        <h1>{errMessage}</h1>
       </div>
     );
   };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Routes} from "react-router-dom";
-import{NavBar, Profile, Activities, Register, Routines, MyRoutines, Login }  from "./"
+import{NavBar, Profile, Activities, Register, Routines, Login, CreateRoutine, CreateActivity, UpdateRoutine }  from "./"
 
 import './app.css'
 
@@ -8,6 +8,8 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [routines, setRoutines] = useState([]);
+  const [activity, setActivity] = useState([]);
   
 
   useEffect(() => {
@@ -30,11 +32,13 @@ const App = () => {
             <Route path="/" 
             element={<h1>Welcome To FitnessTrackr!</h1>}>
             </Route>
-            <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
+            <Route path="/profile" element={<Profile username={username} />}></Route>
             <Route path="/routines" element={<Routines />}></Route>
-            <Route path="/my-routines" element={<MyRoutines />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/CreateRoutine" element={<CreateRoutine routines={routines} setRoutines={setRoutines} />}></Route>
+            <Route path="/CreateActivity" element={<CreateActivity activity={activity} setActivity={setActivity} />}></Route>
+            {/* <Route path="/UpdateRoutine" element={<UpdateRoutine name={routines.name} goal={routines.goal} routineId={routines.id}/>}></Route> */}
             <Route path="/activities" element={<Activities />}></Route>
+            <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
       </Routes>
 
       ) : (
@@ -47,6 +51,8 @@ const App = () => {
             </Route>
             <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
             <Route path="/register" element={<Register />}></Route>
+            <Route path="/routines" element={<Routines />}></Route>
+            <Route path="/activities" element={<Activities />}></Route>
         </Routes>
         </div>
 

@@ -28,11 +28,16 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         event.preventDefault()        
         try {
           const result = await loginUser(username, password)
-          localStorage.setItem("token",result.token)
-          setIsLoggedIn(true)
+          console.log(result, "HELLO RESULT");
+          if(result.error) {
+            alert(result.error);
+          } else {
+            localStorage.setItem("token",result.token)
+            setIsLoggedIn(true)
+          }
           
         } catch (error) {
-          console.error(message)
+          console.error(error)
         }
     }
 

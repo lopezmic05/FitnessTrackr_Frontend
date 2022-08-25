@@ -32,9 +32,9 @@ const Routines = () => {
   });
   return (
     <div id="routine-container">
-      <h2 id="routine-heading">Welcome To Routines!!</h2>
+      <h2 id="routine-heading">Welcome to Routines</h2>
       {routines && routines.length ? (
-        <p>{mapRoutines}</p>
+        <h3>{mapRoutines}</h3>
       ) : null}
     </div>
   );
